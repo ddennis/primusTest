@@ -32,8 +32,8 @@ exports.init = function (server, redisClient, port) {
         transformer: 'faye',
         namespace: namespace,
         redis:redisClient,
-        address:primusAdress,
-        url:primusAdress+"/primus/omega/supreme"
+        address:primusAdress
+        /*url:primusAdress+"/primus/omega/supreme"*/
     });
 
 
