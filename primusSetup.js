@@ -9,7 +9,7 @@ var os = require ('os');
 
 var hostName = os.hostname();
 var primus = null;
-var primusAdresse = "";
+var primusAdress = "";
 var namespace = "";
 
 // INIT
@@ -19,9 +19,30 @@ exports.init = function (server, redisClient, port) {
 // SETUP locally
 //---------------------------------------------------------------------------------------
 
-    primusAdress = "http://"+ip.address()+":"+port;
-    namespace = 'metroplex' + 'localtest';
-    console.log (" primusSetup.js > primusAdresse = " , primusAdress);
+    var hostName = os.hostname();
+    console.log (" primusFan.js > hostName " , hostName)
+    if(hostName == "Fathead" || hostName == "Fathead-PC"  ){
+
+    } else{
+        hostName = ""
+    }
+
+
+    var SERVO_ID = "";
+    if(process.env.SERVO_ID != undefined ){
+
+        SERVO_ID = process.env.SERVO_ID;
+        primusAdress = "http://fantest-46241.onmodulus.net/" + "?x-mod-servo=" +SERVO_ID
+        //primusAdress = "http://"+ip.address()+":"+port + "?x-mod-servo=" +SERVO_ID
+
+    }else{
+        primusAdress = "http://"+ip.address()+":"+port;
+    }
+
+
+    namespace = 'metroplex' + hostName;
+    console.log (" primusSetup.js > primusAdress = " , primusAdress);
+    console.log (" primusSetup.js > namespace = " , namespace);
 
 
 // SETUP PRIMUS
@@ -43,7 +64,6 @@ exports.init = function (server, redisClient, port) {
     primus.use('omega-supreme', require('omega-supreme'));
 
 
-
 // EXPORTS PRIMUS
 // ---------------------------------------------------------------------------------------
 
@@ -56,7 +76,6 @@ exports.init = function (server, redisClient, port) {
 //---------------------------------------------------------------------------------------
 
     primus.on('connection', function (spark) {
-
         spark.on('data', function message(data) {
             primus.metroplex.servers(function (err, servers) {
                 console.log (" primusSetup.js > servers  = " , servers );

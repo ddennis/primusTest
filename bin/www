@@ -7,15 +7,23 @@ var primusSetup = require('../primusSetup');
 var redis = require('redis');
 
 var redisClient = redis.createClient("9536", "soapfish.redistogo.com");
-redisClient.auth("dde25f9c3ce0ff7f2617753881dc54f5", function() {
+redisClient.auth("****", function() {
   console.log("Connected TO REDIS");
   runServer();
 });
 
 
+var myPort = 3000;
+
+if(process.argv[2] == 3001 || process.argv[2] == 3002 ){
+  myPort = parseInt(process.argv[2])
+}
+
+
 function runServer () {
 
-  var port = process.argv[2] || 3000;
+  var port = parseInt(process.env.PORT, 10) || myPort;
+  //var port = process.argv[2] || 3000;
   console.log (" www > using port = " , port);
   app.set('port', port);
 
