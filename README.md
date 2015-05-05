@@ -2,9 +2,9 @@
 Testing omega-supreme and metroplex
 
 ### Resources:
-https://github.com/primus/primus
-https://github.com/primus/omega-supreme
-https://github.com/primus/metroplex
+https://github.com/primus/primus  
+https://github.com/primus/omega-supreme  
+https://github.com/primus/metroplex  
 
 
 ### Video
