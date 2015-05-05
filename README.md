@@ -1,14 +1,17 @@
 # primusTest
 Testing omega-supreme and metroplex
 
-Resources: 
+### Resources:
 https://github.com/primus/primus
 https://github.com/primus/omega-supreme
 https://github.com/primus/metroplex
 
 
-Video
-1. https://vimeo.com/98415441
-2. https://vimeo.com/110034343
-3. https://vimeo.com/109912257
+### Video
+https://vimeo.com/98415441--
+
+https://vimeo.com/110034343--
+
+https://vimeo.com/109912257--
+
 
